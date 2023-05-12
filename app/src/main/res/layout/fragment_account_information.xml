@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray91"
+   >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/deposit"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:text="Available: CBE acc_no 1000023456789"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:text="Notice:After depositing don't forget to provide\n transaction number,under your profile. "
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textColor="@color/green"
+            android:text="Other deposit method coming soon!"
+            />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/withdraw"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textColor="@color/green"
+            android:text="Other withdrawal method coming soon!"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:text="Please give us CBE acc no only"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:orientation="horizontal"
+            >
+
+            <EditText
+                android:id="@+id/get_acc_no"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:inputType="number"
+                android:padding="3dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/acc_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textAllCaps="false"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:textColor="@color/red"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:text="Notice:Account adding is allowed only once!"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:text="If you want to change you withdrawal account!\n contact Acution era support team support@auction.com"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">Auction</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="category">
+
+        <item>Vehicle</item>
+        <item>Electronics</item>
+        <item>Books</item>
+        <item>Memorable</item>
+        <item>Spares</item>
+        <item>Art</item>
+        <item>Jewelry</item>
+        <item>Home</item>
+        <item>Antiquities</item>
+        <item>Watches</item>
+        <item>Furniture</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="Vehicle_category">
+        <item>Cars</item>
+        <item>Trucks</item>
+        <item> Buses</item>
+        <item> Motorcycles</item>
+        <item>Bicycles</item>
+        <item>Scooters</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="Electronics_category">
+        <item>Cameras</item>
+        <item>Home Appliances</item>
+        <item>Computers</item>
+        <item>Smartphones</item>
+        <item>Televisions</item>
+        <item>Gaming Consoles</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="Furniture_category">
+
+        <item>Sofas and Couches</item>
+        <item>Beds</item>
+        <item>Dining Sets</item>
+        <item>Desks</item>
+        <item>Outdoor Furniture</item>
+        <item>Office Furniture</item>
+        <item>Others</item>
+
+    </string-array>
+
+    <string-array name="Antiquities_category">
+
+        <item>Archaeological Artifacts</item>
+        <item>Paintings</item>
+        <item>Textiles</item>
+        <item>Manuscripts</item>
+        <item>Weapons</item>
+        <item>Coins and Stamps</item>
+        <item>Others</item>
+
+    </string-array>
+
+    <string-array name="Jewelry_category">
+
+        <item>Necklaces</item>
+        <item>Earrings</item>
+        <item>Rings</item>
+        <item>Bracelets</item>
+        <item>Precious Stones</item>
+        <item>Costume Jewelry</item>
+        <item>Others</item>
+
+    </string-array>
+
+    <string-array name="spare_category">
+
+        <item>Electrical Parts</item>
+        <item>Body Parts</item>
+        <item>Suspension Parts</item>
+        <item>Brake Parts</item>
+        <item>Transmission Parts</item>
+        <item>Engine Parts</item>
+        <item>Others</item>
+
+    </string-array>
+
+
+    <string-array name="art_category">
+
+        <item>Drawing</item>
+        <item>Painting</item>
+        <item>Photography</item>
+        <item>Street Art</item>
+        <item>Digital Art</item>
+        <item>Sculpture</item>
+        <item>Others</item>
+
+    </string-array>
+</resources>

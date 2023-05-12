@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray91"
+    android:orientation="vertical"
+    tools:context=".visitorsActivity"
+    tools:ignore="contentDescription">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green"
+        android:titleTextColor="@android:color/black"
+        />
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="4dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="AUCTION ERA"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="4dp"
+                android:gravity="center"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/slide_image"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="4dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="Catagory"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="2dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/cars"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/car_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/jewelry"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/jewelry_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/home"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/home_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/antiques"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/gasha_style"
+                        android:focusable="true" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="2dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/spare"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/spare_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/furniture"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/furniture_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/memorable"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/memorable_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/art"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/art_style"
+                        android:focusable="true" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="2dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/watch"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/watch_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/book"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/book_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/appliance"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/electronics_style"
+                        android:focusable="true" />
+
+                    <ImageView
+                        android:id="@+id/others"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/others_style"
+                        android:focusable="true" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="4dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="Subscribe to be notified for new products"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:elevation="22dp"
+                app:cardCornerRadius="4dp"
+                app:cardMaxElevation="22dp"
+                app:cardPreventCornerOverlap="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/subscribe_email"
+                        android:layout_width="250dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="6dp"
+                        android:inputType="textWebEmailAddress"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    <Button
+                        android:id="@+id/subscribe_button"
+                        android:layout_width="48dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/button_style"
+                        android:foreground="@drawable/button_style"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

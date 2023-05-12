@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:enabled="false"
+        android:title="Select language" />
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/english_id"
+            android:checked="true"
+            android:title="English" />
+
+        <item
+            android:id="@+id/amharic_id"
+            android:title="Amharic" />
+
+    </group>
+    <item
+        android:id="@+id/profile_sh"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/logout_sh"
+        android:title="Logout" />
+
+</menu>

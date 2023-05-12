@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray91"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="25dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardCornerRadius="5dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginStart="2dp"
+            >
+
+            <TextView
+                android:id="@+id/member_item_name"
+                android:layout_width="120dp"
+                android:layout_height="59dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="member"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/member_item_state"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="member item state"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+
+            <ImageView
+                android:id="@+id/member_item_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_marginEnd="5dp"
+                android:textStyle="bold"
+                android:contentDescription="TODO" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</RelativeLayout>
