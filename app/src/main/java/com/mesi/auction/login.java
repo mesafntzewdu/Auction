@@ -1,11 +1,18 @@
 package com.mesi.auction;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +32,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Objects;
 
+import android.Manifest;
+
 public class login extends Fragment {
 
     EditText user_name;
@@ -42,8 +51,7 @@ public class login extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_login, container, false);
 
@@ -78,12 +86,10 @@ public class login extends Fragment {
 
     private void checkIfLoginIsAdmin(String user_name, String password) {
 
-        if (user_name.equals("admin")&&password.equals("admin"))
-        {
-          Intent i = new Intent(getActivity(), AdminHome.class);
-          startActivity(i);
-        }else
-        {
+        if (user_name.equals("admin") && password.equals("admin")) {
+            Intent i = new Intent(getActivity(), AdminHome.class);
+            startActivity(i);
+        } else {
             checkUserLoginCr();
         }
 
@@ -96,12 +102,29 @@ public class login extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (compoundButton.isChecked()) {
-                    
-                    saveLogin = true;
+
+                    if (checkifStorageIsAllowed())
+                    {
+                        saveLogin = true;
+                    }else {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            try {
+                                Intent i = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                                i.setData(Uri.fromParts("package", requireActivity().getPackageName(), null));
+                                startActivity(i);
+                            } catch (Exception e) {
+                                Intent i = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                                //i.setData(Uri.fromParts("package", requireActivity().getPackageName(), null));
+                                startActivity(i);
+                            }
+                        } else {
+                            storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                        }
+                    }
+
                 }
 
-                if (!compoundButton.isChecked())
-                {
+                if (!compoundButton.isChecked()) {
                     saveLogin = false;
                 }
             }
@@ -112,52 +135,84 @@ public class login extends Fragment {
     public void writeSaveInfo() {
         File file = new File(Environment.getExternalStorageDirectory() + "/AUCTION/file/state.csv");
 
-        try {
+        if (checkifStorageIsAllowed()) {
+            try {
 
-            DBHelper db = new DBHelper(getContext());
+                DBHelper db = new DBHelper(getContext());
 
-            FileWriter fw = new FileWriter(file);
+                FileWriter fw = new FileWriter(file);
 
-            CSVWriter csvWrite = new CSVWriter(fw);
+                CSVWriter csvWrite = new CSVWriter(fw);
 
-            String[] userListArray = {db.getUserId(user_name.getText().toString())};
+                String[] userListArray = {db.getUserId(user_name.getText().toString())};
 
-            csvWrite.writeNext(userListArray);
-            csvWrite.flush();
-            csvWrite.close();
-            fw.close();
+                csvWrite.writeNext(userListArray);
+                csvWrite.flush();
+                csvWrite.close();
+                fw.close();
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                try {
+                    Intent i = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                    i.setData(Uri.fromParts("package", requireActivity().getPackageName(), null));
+                    startActivity(i);
+                } catch (Exception e) {
+                    Intent i = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                    //i.setData(Uri.fromParts("package", requireActivity().getPackageName(), null));
+                    startActivity(i);
+                }
+            } else {
+                storagePermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            }
         }
     }
 
+    private boolean checkifStorageIsAllowed() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            return Environment.isExternalStorageManager();
+        } else {
+            return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+        }
+    }
+
+    ActivityResultLauncher<String> storagePermission = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+
+        if (isGranted) {
+
+        } else {
+            Toast.makeText(getContext(), "Storage permission should be allowed.", Toast.LENGTH_SHORT).show();
+        }
+
+    });
+
     private void checkUserLoginCr() {
 
-        if (db.checkUserIfExists(user_name.getText().toString().trim()))
-        {
+        if (db.checkUserIfExists(user_name.getText().toString().trim())) {
 
             singleDAO.getSingleInstance().setUserIdSession(db.getUserId(user_name.getText().toString()));
 
-           if (saveLogin)
-           {
-               File fileTest = new File(Environment.getExternalStorageDirectory() + "/AUCTION/file/");
-               if (fileTest.exists()) {
-                   writeSaveInfo();
-               } else {
-                   fileTest.mkdirs();
-                   writeSaveInfo();
+            if (saveLogin) {
+                File fileTest = new File(Environment.getExternalStorageDirectory() + "/AUCTION/file/");
+                if (fileTest.exists()) {
+                    writeSaveInfo();
+                } else {
+                    fileTest.mkdirs();
+                    writeSaveInfo();
 
-               }
-           }
+                }
+            }
 
             Intent i = new Intent(getActivity(), memberActivity.class);
-             requireActivity().finish();
+            requireActivity().finish();
             startActivity(i);
 
-        }else
-        {
+        } else {
 
             Toast.makeText(getContext(), "Invalid credential", Toast.LENGTH_SHORT).show();
 
@@ -165,4 +220,6 @@ public class login extends Fragment {
 
         }
     }
+
+
 }
